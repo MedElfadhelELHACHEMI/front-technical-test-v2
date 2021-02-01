@@ -32,7 +32,9 @@ export default function Home() {
         <InstantSearch indexName="bestbuy" searchClient={searchClient}>
           <Configure hitsPerPage={20} />
           <SearchBox />
-          <Link href="/cart">Panier </Link>
+          <Link href="/cart" >
+            Panier
+          </Link>
           <ConnectedHitList />
           <Pagination />
         </InstantSearch>

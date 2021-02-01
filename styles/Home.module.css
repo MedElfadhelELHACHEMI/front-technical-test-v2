@@ -133,11 +133,12 @@
     width: 40%;
   }
 }
-.link {
+.main a {
   font-size: 1.25rem;
   line-height: 2.25rem;
   background: #0070f3;
   color: white;
   padding: 0.5rem 1rem;
-  margin: 3rem;
+  margin: 1rem;
+  border-radius: 8px;
 }
