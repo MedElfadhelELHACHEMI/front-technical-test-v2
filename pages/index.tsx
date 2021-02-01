@@ -1,12 +1,21 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch } from 'react-instantsearch-dom';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import algoliasearch from "algoliasearch/lite";
+import {
+  InstantSearch,
+  SearchBox,
+  Configure,
+  Pagination,
+  connectHits,
+} from "react-instantsearch-dom";
+import HitList from "../Components/hitList";
+import Link from "next/link";
 
 const searchClient = algoliasearch(
-  'latency',
-  '6be0576ff61c053d5f9a3225e2a90f76'
+  "latency",
+  "6be0576ff61c053d5f9a3225e2a90f76"
 );
+const ConnectedHitList = connectHits(HitList);
 
 export default function Home() {
   return (
@@ -20,13 +29,12 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to La Fourche Frontend Technical Test v2 !
         </h1>
-        <InstantSearch
-          indexName="bestbuy"
-          searchClient={searchClient}
-        >
-          {/* ##################################
-              Your instantsearch code goes here.
-              ################################## */}
+        <InstantSearch indexName="bestbuy" searchClient={searchClient}>
+          <Configure hitsPerPage={20} />
+          <SearchBox />
+          <Link href="/cart">Panier </Link>
+          <ConnectedHitList />
+          <Pagination />
         </InstantSearch>
       </main>
 
@@ -36,10 +44,10 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }

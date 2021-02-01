@@ -73,16 +73,15 @@
 
 .grid {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 1024px;
   margin-top: 3rem;
 }
 
 .card {
-  margin: 1rem;
-  flex-basis: 45%;
+  margin: 0.5rem;
+  flex: 1 0 21%;
+  width: 21%;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -114,9 +113,31 @@
   height: 1em;
 }
 
+.card button {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 0.8rem 1rem;
+  background-color: #0070f3;
+  color: #eaeaea;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
-    flex-direction: column;
   }
+  .card {
+    flex: 1 0 40%;
+    width: 40%;
+  }
+}
+.link {
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  background: #0070f3;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin: 3rem;
 }
