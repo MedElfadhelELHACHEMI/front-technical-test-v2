@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import { useBasket } from "../Contexts/basket-context";
 import HitList from "../Components/hitList/index";
 import { itemType } from "../types";
+import Link from "next/link";
 
 export default function Cart() {
   const { basket } = useBasket();
@@ -19,6 +20,7 @@ export default function Cart() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Panier</h1>
+        <Link href="/"> Retour</Link>
         <h3>{totalPrice()}</h3>
 
         <HitList hits={basket} />
